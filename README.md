@@ -47,8 +47,3 @@ This project demonstrates:
 - Exception handling and validation
 - Real-world banking operations simulation
 
-## Author
-- Akhil
-
----
-For any issues or questions, please contact the project author.
