@@ -46,67 +46,86 @@ public class Login {
 	 */
 	private void initialize() {
 		
-		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame = new JFrame() {
+			@Override
+			public void paint(Graphics g) {
+				super.paint(g);
+				java.awt.Graphics2D g2d = (java.awt.Graphics2D) g;
+				java.awt.GradientPaint gp = new java.awt.GradientPaint(0, 0, new java.awt.Color(135, 206, 250), 0, getHeight(), new java.awt.Color(60, 179, 113));
+				g2d.setPaint(gp);
+				g2d.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
+		frame.setBounds(100, 100, 500, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Banking System");
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel label = new JLabel("Banking System");
-		label.setFont(new Font("Tahoma", Font.BOLD, 17));
-		label.setBounds(147, 11, 151, 41);
+		label.setFont(new Font("Segoe UI", Font.BOLD, 28));
+		label.setBounds(120, 30, 300, 40);
+		label.setHorizontalAlignment(JLabel.CENTER);
+	label.setForeground(new java.awt.Color(0, 70, 70));
 		frame.getContentPane().add(label);
-		
-		JLabel lblLoginScreen = new JLabel("Login Screen");
-		lblLoginScreen.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		lblLoginScreen.setBounds(170, 63, 101, 23);
+
+		JLabel lblLoginScreen = new JLabel("Welcome! Please Login");
+		lblLoginScreen.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+		lblLoginScreen.setBounds(120, 80, 300, 30);
+		lblLoginScreen.setHorizontalAlignment(JLabel.CENTER);
+	lblLoginScreen.setForeground(new java.awt.Color(0, 128, 128));
 		frame.getContentPane().add(lblLoginScreen);
-		
+
 		JLabel lblUsername = new JLabel("Username:");
-		lblUsername.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblUsername.setBounds(55, 119, 64, 23);
+		lblUsername.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblUsername.setBounds(100, 140, 100, 30);
+	lblUsername.setForeground(new java.awt.Color(60, 179, 113));
 		frame.getContentPane().add(lblUsername);
-		
-		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		lblPassword.setBounds(55, 159, 64, 23);
-		frame.getContentPane().add(lblPassword);
-		
+
 		textField = new JTextField();
-		textField.setBounds(130, 121, 86, 20);
-		frame.getContentPane().add(textField);
+		textField.setBounds(210, 140, 180, 30);
+		textField.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		textField.setColumns(10);
-		textField.setText("admin");
-		
+		textField.setText("akhil");
+	textField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(135, 206, 250), 2, true));
+	textField.setBackground(new java.awt.Color(224, 255, 255));
+		frame.getContentPane().add(textField);
+
+		JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		lblPassword.setBounds(100, 190, 100, 30);
+	lblPassword.setForeground(new java.awt.Color(0, 128, 128));
+		frame.getContentPane().add(lblPassword);
+
 		textField_1 = new JPasswordField();
-		textField_1.setBounds(130, 161, 86, 20);
-		frame.getContentPane().add(textField_1);
+		textField_1.setBounds(210, 190, 180, 30);
+		textField_1.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		textField_1.setColumns(10);
-		
+	textField_1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(60, 179, 113), 2, true));
+	textField_1.setBackground(new java.awt.Color(224, 255, 255));
+		frame.getContentPane().add(textField_1);
+
 		JButton btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 18));
+	btnLogin.setBackground(new java.awt.Color(60, 179, 113));
+	btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+	btnLogin.setFocusPainted(false);
+	btnLogin.setBounds(180, 250, 140, 40);
+	btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(135, 206, 250), 2, true));
 		btnLogin.addActionListener(new ActionListener() {
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e) {
-				String user,pass;
-				textField.setText("admin");
-				user="admin";
-				//user=textField.getText();
-				pass=textField_1.getText();
-				if((user.equals("admin")&&(pass.equals("admin"))))
-						{
-							JOptionPane.showMessageDialog(frame.getComponent(0), "Login Successfully");
-							frame.setVisible(false);
-							
-							GUIForm.menu.setVisible(true);
-							
-						}
-				else
-				{
+				String user, pass;
+				user = textField.getText();
+				pass = textField_1.getText();
+				if (user.equals("akhil") && pass.equals("123")) {
+					JOptionPane.showMessageDialog(frame.getComponent(0), "Login Successfully");
+					frame.setVisible(false);
+					GUIForm.menu.setVisible(true);
+				} else {
 					JOptionPane.showMessageDialog(frame.getComponent(0), "Login Failed");
 				}
 			}
 		});
-		btnLogin.setBounds(260, 138, 89, 23);
 		frame.getContentPane().add(btnLogin);
 	}
 }

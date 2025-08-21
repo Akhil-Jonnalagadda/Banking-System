@@ -1,8 +1,8 @@
 package Bank;
-import java.io.Serializable;
-
+import Exceptions.InvalidAmount;
 import Exceptions.MaxBalance;
 import Exceptions.MaxWithdraw;
+import java.io.Serializable;
 
 public class BankAccount implements Serializable {
 
@@ -58,5 +58,12 @@ public class BankAccount implements Serializable {
 	@Override
 	public String toString() {
 		return "Name: " + name + ", Id: " + acc_num + ", Balance: " + balance +"Type:"+this.getClass();
+	}
+	public String getAccNum() {
+		return acc_num;
+	}
+
+	public double getMinBalance() {
+		return min_balance;
 	}
 }

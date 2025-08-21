@@ -12,10 +12,10 @@ public class SavingsAccount extends BankAccount {
 	double maxWithLimit;
 //	String type;
 	
-	public SavingsAccount(String name, double balance,double maxWithLimit) {
+	public SavingsAccount(String name, double balance,double maxWithLimit) throws Exception {
 		super(name, balance, 2000);
 		this.maxWithLimit= maxWithLimit;
-//		this.type="Savings Account";
+//        this.type="Savings Account";
 	}
 	
 	public double getNetBalance()
@@ -24,6 +24,7 @@ public class SavingsAccount extends BankAccount {
 		return NetBalance;
 	}
 	
+	@Override
 	public void withdraw(double amount) throws MaxWithdraw, MaxBalance
 	{
 		if(amount<maxWithLimit)

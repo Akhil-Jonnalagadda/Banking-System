@@ -33,9 +33,16 @@ public class Menu extends JFrame {
 		setTitle("Banking System");
 		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 649, 474);
-		contentPane = new JPanel();
-		contentPane.setBackground(SystemColor.activeCaption);
-		contentPane.setForeground(SystemColor.activeCaption);
+		contentPane = new JPanel() {
+			@Override
+			protected void paintComponent(java.awt.Graphics g) {
+				super.paintComponent(g);
+				java.awt.Graphics2D g2d = (java.awt.Graphics2D) g;
+				java.awt.GradientPaint gp = new java.awt.GradientPaint(0, 0, new java.awt.Color(135, 206, 250), 0, getHeight(), new java.awt.Color(60, 179, 113));
+				g2d.setPaint(gp);
+				g2d.fillRect(0, 0, getWidth(), getHeight());
+			}
+		};
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -70,8 +77,9 @@ public class Menu extends JFrame {
 		btnDepositToAccount.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!GUIForm.depositacc.isVisible())
-				{
-					GUIForm.depositacc.setVisible(true);
+		lblBankingSystem.setFont(new Font("Segoe UI", Font.BOLD, 28));
+		lblBankingSystem.setBounds(0, 69, 613, 59);
+		lblBankingSystem.setForeground(new java.awt.Color(0, 70, 70));
 				}
 				else
 				{
@@ -89,7 +97,10 @@ public class Menu extends JFrame {
 				if(!GUIForm.withdraw.isVisible())
 				{
 					GUIForm.withdraw.setVisible(true);
-				}
+		btnNewButton.setBounds(217, 166, 194, 36);
+		btnNewButton.setBackground(new java.awt.Color(135, 206, 250));
+		btnNewButton.setForeground(new java.awt.Color(60, 179, 113));
+		btnNewButton.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				else
 				{
 					JOptionPane.showMessageDialog(getComponent(0), "Already Opened", "Warning", 0);
@@ -105,7 +116,10 @@ public class Menu extends JFrame {
 		JButton btnDisplayAccountList = new JButton("Display Account List");
 		btnDisplayAccountList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+		btnDepositToAccount.setBounds(217, 213, 194, 33);
+		btnDepositToAccount.setBackground(new java.awt.Color(135, 206, 250));
+		btnDepositToAccount.setForeground(new java.awt.Color(60, 179, 113));
+		btnDepositToAccount.setFont(new Font("Segoe UI", Font.BOLD, 16));
 				if(!GUIForm.displaylist.isVisible())
 				{
 					GUIForm.displaylist.setVisible(true);
@@ -121,7 +135,10 @@ public class Menu extends JFrame {
 		contentPane.add(btnDisplayAccountList);
 		
 		JButton btnExit = new JButton("Exit");
-		btnExit.addActionListener(new ActionListener() {
+		btnWithdrawFromAccount.setBounds(217, 256, 194, 33);
+		btnWithdrawFromAccount.setBackground(new java.awt.Color(135, 206, 250));
+		btnWithdrawFromAccount.setForeground(new java.awt.Color(60, 179, 113));
+		btnWithdrawFromAccount.setFont(new Font("Segoe UI", Font.BOLD, 16));
 			public void actionPerformed(ActionEvent arg0) {
 				JOptionPane.showMessageDialog(getComponent(0), "Thanks For Using") ;
 				FileIO.Write();
@@ -137,7 +154,10 @@ public class Menu extends JFrame {
 			if(!GUIForm.addaccount.isVisible())
 			{
 				GUIForm.addaccount.setVisible(true);
-			}
+		btnDisplayAccountList.setBounds(217, 300, 194, 32);
+		btnDisplayAccountList.setBackground(new java.awt.Color(135, 206, 250));
+		btnDisplayAccountList.setForeground(new java.awt.Color(60, 179, 113));
+		btnDisplayAccountList.setFont(new Font("Segoe UI", Font.BOLD, 16));
 			else
 			{
 				JOptionPane.showMessageDialog(getComponent(0), "Already Opened", "Warning", 0);
@@ -148,7 +168,10 @@ public class Menu extends JFrame {
 			
 		});
 		btnNewButton.setBounds(217, 166, 194, 36);
-		contentPane.add(btnNewButton);
+		btnExit.setBounds(217, 343, 194, 33);
+		btnExit.setBackground(new java.awt.Color(60, 179, 113));
+		btnExit.setForeground(new java.awt.Color(255, 255, 255));
+		btnExit.setFont(new Font("Segoe UI", Font.BOLD, 16));
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(Menu.class.getResource("/img/1.png")));

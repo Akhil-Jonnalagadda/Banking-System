@@ -1,52 +1,54 @@
-# Banking System - Java Swing Project
+# Banking System Project
 
-## Description
-The Banking System is a Java Swing application that simulates basic banking operations. It provides a user-friendly interface for managing accounts, transactions, and other essential banking functions.
+## Overview
+This is a Java-based Banking System application with a graphical user interface (GUI). It allows users to manage different types of bank accounts, perform transactions, and view account details in a secure and user-friendly environment.
 
 ## Features
-- Account creation and management
-- Deposit and withdrawal transactions
-- Balance inquiry
-- Transaction history
-- User-friendly GUI with Java Swing
+- **Login System:** Secure login with username and password.
+- **Account Management:** Add, view, and manage Savings, Current, and Student accounts.
+- **Transactions:** Deposit and withdraw money with validation and error handling.
+- **GUI:** Modern, colorful interface for easy navigation and use.
+- **Exception Handling:** Custom exceptions for invalid operations (e.g., insufficient balance, invalid amount).
 
-## Screenshots
-![Screenshot 1](screenshot/1.png)
-![Screenshot 2](screenshot/2.png)
+## How to Run
+1. **Compile the Source Code:**
+   - Open PowerShell in the `BankingSystem` directory.
+   - Run the following command to compile all Java files:
+     ```powershell
+     Get-ChildItem -Path src -Recurse -Filter *.java | ForEach-Object { javac -d bin $_.FullName }
+     ```
+2. **Run the Application:**
+   - Execute the following command to start the application:
+     ```powershell
+     java -cp bin Application
+     ```
+   - The login window will appear. Use the credentials:
+     - **Username:** akhil
+     - **Password:** 123
 
-## Technologies Used
-- Java
-- Java Swing for GUI
+## Project Structure
+- `src/` : Contains all Java source files organized by package (Bank, GUI, Data, Exceptions).
+- `bin/` : Compiled `.class` files.
+- `img/` : Images used in the GUI.
+- `README.md` : Project documentation and instructions.
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/banking-system.git
-   cd banking-system
-   
-   ```
-2. Run Project
-   ```bash
-   javac Main.java
-   java Main
-   ```
 ## Usage
-1. Launch the application.
-2. Follow the on-screen instructions to perform banking operations.
+- After logging in, you can add new accounts, deposit/withdraw money, and view account details.
+- The application handles errors gracefully and provides feedback for invalid operations.
 
-## Contribution
-Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+## Requirements
+- Java JDK 8 or higher
+- Windows PowerShell (for running commands)
 
-1. Fork the repository
-2. Create a new branch (git checkout -b feature/new-feature)
-3. Commit your changes (git commit -m 'Add new feature')
-4. Push to the branch (git push origin feature/new-feature)
-5. Create a pull request
+## Purpose
+This project demonstrates:
+- Object-oriented programming in Java
+- GUI development with Swing
+- Exception handling and validation
+- Real-world banking operations simulation
 
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## Author
+- Akhil
 
-## Acknowledgments
-- Thanks to Java for the programming language.
-- Special thanks to Java Swing for the GUI components.
-- Feel free to customize the content according to your project's specific details. Add more sections or information as needed.
+---
+For any issues or questions, please contact the project author.
